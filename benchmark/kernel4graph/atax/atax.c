@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <math.h>
+
+#define N 64
+
+#define DATA_TYPE float
+
+__attribute__((noinline))
+void loop1(int i, int j, DATA_TYPE A[N][N], DATA_TYPE x[N], DATA_TYPE tmp[N]) {
+    #pragma unroll
+    for (i = 0; i < N; i++) {
+        #pragma unroll
+        for (j = 0; j < N; j++) {
+	        tmp[i] = tmp[i] + A[i][j] * x[j];
+        }
+    }
+}
+
+__attribute__((noinline))
+void loop2(int i, int j, DATA_TYPE A[N][N], DATA_TYPE y[N], DATA_TYPE tmp[N]) {
+    #pragma unroll
+    for (i = 0; i < N; i++) {
+        #pragma unroll
+        for (j = 0; j < N; j++) {
+        	y[j] = y[j] + A[i][j] * tmp[i];
+        }
+    }
+}
+
+void atax(int i, int j, DATA_TYPE A[N][N], DATA_TYPE x[N], DATA_TYPE y[N], DATA_TYPE tmp[N])
+{
+    loop1(i, j, A, x, tmp);
+    loop2(i, j, A, y, tmp);
+}
+
+

@@ -1,2 +1,2 @@
-# Hierarchical-GNN-for-HLS
+# HGNN
 DATE'24 paper: "Hierarchical Source-to-Post-Route QoR Prediction in High-Level Synthesis with GNNs"

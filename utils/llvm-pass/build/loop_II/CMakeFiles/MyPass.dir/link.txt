@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -bundle -Wl,-headerpad_max_install_names -undefined dynamic_lookup -o libMyPass.so CMakeFiles/MyPass.dir/loop_II.cpp.o   -L/usr/local/opt/llvm@9/lib 

@@ -3,6 +3,9 @@ import time
 from math import prod
 from queue import Queue
 
+import tempfile
+from shutil import copyfile
+
 import programl as pg
 import networkx as nx
 
@@ -52,12 +55,6 @@ def add_invocation_feature(graph, loop_cfg):
 
     The invocation feature provides insights on how frequently a specific node operation 
     is executed, considering its inherent latency and the configuration of surrounding loops.
-
-    Parameters:
-    - graph (networkx.Graph): The graph where nodes represent operations.
-    - kern (str): Name of the kernel function under consideration.
-    - lp_idx (str/int): Identifier or index of the loop.
-    - loop_cfg (list): Configuration of the loop, including unroll factors.
 
     The function computes the 'invocation' feature as a product of the node's latency and 
     a derived factor from the loop's configuration.
@@ -228,8 +225,6 @@ def back_visit_set(G, node):
     else:
         return min(op_visited)
 
-
-
 def relink_control_flow(graph):
     """
     Relink control flow of the graph.
@@ -370,4 +365,9 @@ def generate_IR_graph():
 
     # Convert LLVM IR to graph and return
     graph = pg.from_llvm_ir(ir)
+
+    # Delete tmp file
+    os.remove('tmp.c')
+    os.remove('tmp.ll')
+
     return pg.to_networkx(graph)

@@ -1,20 +1,50 @@
-# LLVM 
+# Loop Iteration Latency Calculator
 
-## Build
+This project utilizes LLVM to analyze and compute the iteration latency of loops in C programs. It includes a custom LLVM pass that can be applied to LLVM IR generated from C source code.
 
-mkdir 
+## Requirements
 
-build
+- LLVM 9.0
+- CMake
+- Clang
 
+## Build Instructions
+
+To build the project, follow these steps:
+
+1. Create a build directory:
+```
+mkdir build
 cd build
+```
 
+2. Run CMake to configure the project:
+```
 cmake ..
+```
 
-make 
 
-## Run
+3. Build the project:
+```
+make
+```
 
-clang -O1 -emit-llvm -S -fno-discard-value-names atax.c -o atax.ll
+## Usage
 
-opt -load  ../build/loop_II/libMyPass.so -loopII atax.ll -o atax-opt.ll
+To analyze a C program and calculate loop iteration latency, follow these steps:
+
+1. Generate the LLVM IR from your C code (replace test.c with your C file):
+```
+clang -O1 -emit-llvm -S -fno-discard-value-names test.c -o test.ll
+```
+
+2. Run the custom LLVM pass on the generated LLVM IR:
+```
+opt -load ../build/loop_II/libMyPass.so -loopII test.ll -o test-opt.ll
+```
+
+## Example
+
+For example, to analyze the test.c file, you would run the commands listed above. Feel free to modify the array partition configuration within array `arrayPartition` in `loop_II.cpp`.
+
 

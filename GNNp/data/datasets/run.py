@@ -1,6 +1,6 @@
 import networkx as nx
 import pandas as pd
-import programl as pg
+# import programl as pg
 from torch_geometric.data import Data
 from tqdm import tqdm
 

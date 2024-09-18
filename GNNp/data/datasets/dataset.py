@@ -64,7 +64,11 @@ def extract_node_attributes(graph, node_attrs, encode_text, encoder_type):
 
     for node in graph.nodes():
         for attr in node_attrs:
-            value = float(graph.nodes[node].get(attr, 0))  # Default to 0 if attribute is not present
+            value = graph.nodes[node].get(attr, 0)
+            try:
+                value = float(graph.nodes[node].get(attr, 0))  # Default to 0 if attribute is not present
+            except:
+                value = '0.0'
             attributes_data[attr].append([value])
 
     X_ttype = encode_text.transform(attributes_data['text'])

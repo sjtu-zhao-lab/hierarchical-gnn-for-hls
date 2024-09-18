@@ -75,7 +75,7 @@ def extract_node_attributes(graph, node_attrs, encode_text, encoder_type):
     X_type_type = encoder_type.transform(attributes_data['type'])
 
     # Stack all data together
-    X_data = [X_ttype, X_type_type] + [attributes_data[attr] for attr in node_attrs[2:]]
+    X_data = [X_ttype, X_type_type] + [attributes_data[attr] for attr in node_attrs[3:5]]
     X = hstack(X_data).toarray()
     X = torch.FloatTensor(X)
 

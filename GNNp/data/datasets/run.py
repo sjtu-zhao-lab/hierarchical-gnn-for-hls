@@ -1,6 +1,6 @@
 import networkx as nx
 import pandas as pd
-# import programl as pg
+import programl as pg
 from torch_geometric.data import Data
 from tqdm import tqdm
 
@@ -43,21 +43,22 @@ def create_graph(kernel, arr_cfgs, loop_cfgs, latencies, DSPs, LUTs, FFs, ILs, I
         graph = generate_IR_graph()
 
         # Annotate the graph with various features
-        add_block_label_nodes(graph)
-        relink_control_flow(graph)
+        # add_block_label_nodes(graph)
+        # relink_control_flow(graph)
         add_memory_flow(graph, arr_cfg)
-        add_resource_feature(graph, loop_cfg, IIs[idx])
+        sum = add_resource_feature(graph, loop_cfg, IIs[idx])
         add_latency_feature(graph)
         add_invocation_feature(graph, loop_cfg)
         add_delay_feature(graph)
         add_degree_feature(graph)
+
+        # print(sum, DSPs[idx])
 
         # Append the processed graph and related data to the results
         graph_data = [kernel, graph, latencies[idx], DSPs[idx], LUTs[idx], FFs[idx], ILs[idx], loop_cfgs[idx], arr_cfgs[idx]]
         graphs.append(graph_data)
 
         # visualize_graph_as_html(graph, 'test.html')
-        # break
 
     return graphs
 
@@ -143,7 +144,9 @@ def main():
     """
     Main function to orchestrate the processing and dataset building operations.
     """
-    kernels = ['atax']
+    kernels = ['atax', 'bicg', 'gemm', 'gesummv', 'k2mm', 'k3mm', 'syr2k', 'syrk']
+    # kernels = ['atax']
+    
     label = pd.read_csv('../raw/source_label.csv', index_col=0)
 
     init_directories()

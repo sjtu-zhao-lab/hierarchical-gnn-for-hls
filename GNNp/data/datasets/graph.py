@@ -34,12 +34,18 @@ def add_resource_feature(graph, loop_cfg, init_interval):
         'fmul': {'dsp': 3, 'lut': 155, 'ff': 131}
     }
 
+    sum = 0
+
     for node in graph.nodes():
         node_data = graph.nodes[node]
         node_type = node_data.get('text')
         if node_type in resource_mapping:
             for resource, value in resource_mapping[node_type].items():
                 node_data[resource] = value * factor
+                if resource == 'dsp':
+                    sum += value * factor
+    
+    return sum
 
 def add_latency_feature(graph):
     """Add latency feature to nodes in the graph based on operation type."""
@@ -137,6 +143,8 @@ def link_memory_edges(graph, mem_nodes, arr_cfg):
         ports.setdefault(array_name, [1, 1])[dim-1] = partition_factor
 
     # Link memory edges
+    # LLVM找到对应的数组的名称
+    
     for node, data in graph.nodes(data=True):
         features = data.get('features', {})
         for array, port_vals in ports.items():

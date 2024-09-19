@@ -1,6 +1,0 @@
-/Users/mzc/Desktop/H-GNN Code/LLVM-Pass/build/CMakeFiles/intrinsics_gen.dir
-/Users/mzc/Desktop/H-GNN Code/LLVM-Pass/build/CMakeFiles/edit_cache.dir
-/Users/mzc/Desktop/H-GNN Code/LLVM-Pass/build/CMakeFiles/rebuild_cache.dir
-/Users/mzc/Desktop/H-GNN Code/LLVM-Pass/build/loop_II/CMakeFiles/MyPass.dir
-/Users/mzc/Desktop/H-GNN Code/LLVM-Pass/build/loop_II/CMakeFiles/edit_cache.dir
-/Users/mzc/Desktop/H-GNN Code/LLVM-Pass/build/loop_II/CMakeFiles/rebuild_cache.dir

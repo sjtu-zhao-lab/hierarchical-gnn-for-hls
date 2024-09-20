@@ -1,4 +1,4 @@
-# Loop Iteration Latency Calculator
+# Loop Iteration Interval Calculator
 
 This project utilizes LLVM to analyze and compute the iteration latency of loops in C programs. It includes a custom LLVM pass that can be applied to LLVM IR generated from C source code.
 

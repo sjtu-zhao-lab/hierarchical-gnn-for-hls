@@ -67,7 +67,7 @@ The project file structure is as below:
 │   └── run_script.py       # Script to execute benchmarking
 ├── requirements.txt        # List of project dependencies
 └── utils
-    ├── llvm-pass           # Tools for calculating iteration latency
+    ├── llvm-pass           # Tools for calculating iteration interval
     └── visualization        # Tools for graph visualization
 ```
 

@@ -13,7 +13,7 @@ Experimental results demonstrate that our method achieves a prediction error of 
 Our paper, "Hierarchical Source-to-Post-Route QoR Prediction in High-Level Synthesis with GNNs," is presented at DATE '24. Please refer to our paper for more details:
 
 ```bibtex
-@article{h-gnn,
+@inproceedings{h-gnn,
   author    = {Mingzhe Gao and Jieru Zhao and Zhe Lin and Minyi Guo},
   title     = {Hierarchical Source-to-Post-Route QoR Prediction in High-Level Synthesis with GNNs},
   journal   = {Design, Automation and Test in Europe Conference},

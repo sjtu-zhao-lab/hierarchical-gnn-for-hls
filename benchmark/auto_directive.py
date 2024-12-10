@@ -444,7 +444,7 @@ def gen_strategy_loop(kernel, fw, i, cur_loop_state, cur_array_state):
 
 
 if __name__ == "__main__":                                    
-    kernels = ['syrk']
+    kernels = ['atax']
     # kernels = ['atax', 'bicg', 'gemm', 'gesummv', 'k2mm', 'k3mm', 'syrk', 'syr2k']
 
     cnt, sub_cnt, sub = 0, 0, 0
